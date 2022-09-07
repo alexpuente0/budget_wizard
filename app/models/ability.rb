@@ -1,15 +1,12 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
   def initialize(user)
-
     return unless user.present?
 
-    can :manage, Expense, user:
+    can :manage, Expense, Group, user: user
     can :manage, Group, user:
-
+    
     # Define abilities for the user here. For example:
     #
     #   return unless user.present?

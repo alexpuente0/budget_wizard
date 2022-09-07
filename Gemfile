@@ -81,4 +81,4 @@ gem 'cancancan', '~> 3.4'
 
 gem 'bullet', '~> 7.0'
 
-gem "letter_opener", "~> 1.8"
+gem 'letter_opener', '~> 1.8'
