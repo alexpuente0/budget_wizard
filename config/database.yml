@@ -84,5 +84,5 @@ test:
 production:
   <<: *default
   database: budget_wizard_production
-  username: budget_wizard
-  password: <%= ENV["RECIPES_RAILS_DATABASE_PASSWORD"] %>
+  username: alex
+  password: 123
