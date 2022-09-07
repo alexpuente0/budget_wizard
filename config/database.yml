@@ -58,9 +58,6 @@ development:
 test:
   <<: *default
   database: budget_wizard_test
-  adapter: postgresql
-  host: localhost
-  encoding: unicode
   username: alex
   password: 123
 
@@ -87,5 +84,5 @@ test:
 production:
   <<: *default
   database: budget_wizard_production
-  username: alex
-  password: 123
+  username: budget_wizard
+  password: <%= ENV["RECIPES_RAILS_DATABASE_PASSWORD"] %>
