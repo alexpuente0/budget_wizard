@@ -1,0 +1,23 @@
+<%= link_to root_path do %>
+  <p>' < '</p>
+<% end%>
+<h1>New expense</h1>
+
+<div>
+  
+<%= form_with model: @expense, method:'post', class:'form', url: expense_create_path(group_id: @group.id) do |form| %>
+  <div class="field">
+    <%= form.text_field :name, autofocus: true, placeholder: "Name", required: true, class: "width-100" %>
+    <%= form.number_field :amount, autofocus: true, placeholder: "Amount", required: true, class: "width-100" %>
+  </div>
+
+    <%= form.submit 'Save Expense', :class => 'add-new-bttn' %>
+
+
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Back to expenses", expense_index_path(group_id: @group.id) %>
+</div>

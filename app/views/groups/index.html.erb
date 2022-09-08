@@ -1,0 +1,39 @@
+<p style="color: green"><%= notice %></p>
+
+
+<%= button_to "Log out", destroy_user_session_path, method: :delete, class: "logout", data: { turbo: false } %>
+
+
+<h1>Groups</h1>
+
+<%= link_to "Add a New Category", new_group_path %>
+
+
+<div id="groups">
+  <% @groups.each do |group| %>
+
+<%= link_to expense_index_path(group_id: group.id) do %>
+  <div>
+    <div>
+        <p>
+          <%= image_tag(image_path("#{group.icon}"), class: "img-show") %>
+        </p>
+      <p>
+        <%= group.name %>
+      </p>
+    </div>
+<p> <%= group.expenses.where(user: current_user).sum(:amount)  %> </p>
+  </div>
+<%end%>
+<div>
+  <%= button_to "Delete Category", group_path(group.id), method: :delete %>
+</div>
+
+  <% end %>
+</div>
+
+
+
+
+
+
