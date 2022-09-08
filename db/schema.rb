@@ -15,20 +15,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_200359) do
   enable_extension "plpgsql"
 
   create_table "expenses", force: :cascade do |t|
-    t.string "name"
-    t.decimal "amount"
-    t.bigint "author_id", null: false
+    t.string "name", null: false
+    t.decimal "amount", precision: 10, scale: 2, null: false
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "group_id", null: false
-    t.index ["author_id"], name: "index_expenses_on_author_id"
     t.index ["group_id"], name: "index_expenses_on_group_id"
+    t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.string "icon"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_groups_on_user_id"
@@ -52,6 +52,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_200359) do
   end
 
   add_foreign_key "expenses", "groups"
-  add_foreign_key "expenses", "users", column: "author_id"
+  add_foreign_key "expenses", "users"
   add_foreign_key "groups", "users"
 end
