@@ -6,8 +6,22 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-  <script src="https://cdn.tailwindcss.com"></script>    
+  <script src="https://cdn.tailwindcss.com"></script>   
+      <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'azure': '#3778c2',
+            'lyme': '#5fb523',
+            'coal': '#434b54',
+            },
+          }
+        }
+      }
+  </script>   
     <%= javascript_importmap_tags %>
+    
   </head>
 
   <body>
