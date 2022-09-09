@@ -7,7 +7,8 @@ RSpec.describe 'Group', type: :feature do
       Group.destroy_all
       Expense.destroy_all
       @user = User.create(name: 'Dwight', email: 'dschrute@dmpaper.com', password: 'blackbear', confirmed_at: Time.now)
-      @group = Group.create!(name: 'crops', icon: 'https://en.apkshki.com/storage/8080/icon_603fb76823be0_8080_w256.png', user: @user)
+      @group = Group.create!(name: 'crops',
+                             icon: 'https://en.apkshki.com/storage/8080/icon_603fb76823be0_8080_w256.png', user: @user)
       @expense = Expense.create!(name: 'beets', amount: 250, user: @user, group: @group)
       visit user_session_path
       fill_in 'user_email', with: @user.email

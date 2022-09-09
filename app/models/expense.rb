@@ -5,5 +5,4 @@ class Expense < ApplicationRecord
   validates :name, presence: true
   validates :amount, presence: true
   validates :amount, numericality: { only_float: true, greater_than: 0 }
-
 end

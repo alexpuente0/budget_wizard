@@ -1,9 +1,9 @@
 class ExpensesController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @group = Group.find(params[:group_id])
-    @expenses = Expense.where( group_id: params[:group_id], user: current_user ).order('created_at DESC')
+    @expenses = Expense.where(group_id: params[:group_id], user: current_user).order('created_at DESC')
   end
 
   def show
@@ -16,7 +16,7 @@ class ExpensesController < ApplicationController
     @group = Group.find(params[:group_id])
   end
 
- def create
+  def create
     transaction = Expense.new(expense_params)
     transaction.group_id = params[:group_id]
     transaction.user = current_user
