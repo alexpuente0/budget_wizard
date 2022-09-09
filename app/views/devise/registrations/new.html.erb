@@ -1,34 +1,43 @@
-<h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
+<div class="bg-azure flex justify-between p-5">
+<%= link_to root_path do %>
+  <p class="font-nova text-white text-xl"> ← </p>
+<% end%>
+<h2 class="font-nova text-white text-xl">REGISTER</h2>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Next", class: "font-nova text-s text-white"  %>
   </div>
+</div>
+
+<div class="flex flex-col p-5 my-5 gap-5">
+
+  <div class="field">
+    <%= f.label :name, class: "font-nova text-coal" %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "border border-gray-200 w-full" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, class: "font-nova text-coal" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "border border-gray-200 w-full" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, class: "font-nova text-coal" %>
+    <% if @minimum_password_length %>
+    <em class="font-nova text-coal">(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "border border-gray-200 w-full" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, class: "font-nova text-coal" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "border border-gray-200 w-full" %>
+  </div>
+</div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+
