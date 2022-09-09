@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
     return unless user.present?
 
-    can :manage, Group, user: user
+    can :manage, Group, user:
 
     # Define abilities for the user here. For example:
     #

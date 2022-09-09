@@ -10,4 +10,3 @@ class SplashController < ApplicationController
     redirect_to groups_path if signed_in?
   end
 end
-
