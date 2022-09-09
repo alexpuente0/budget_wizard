@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<p><%=@group.name%></p>
+
+<p>
+          <%= image_tag(image_path("#{@group.icon}"), class: "img-show") %>
+        </p>
+
+           <%= @expense.name %>
+           <%= number_to_currency @expense.amount %>
+

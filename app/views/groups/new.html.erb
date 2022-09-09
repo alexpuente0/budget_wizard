@@ -1,0 +1,35 @@
+<%= link_to root_path do %>
+  <p>' < '</p>
+<% end%>
+<h1>New group</h1>
+
+<%= form_with scope: :group, url: groups_path, method: :post  do |form| %>
+  <div>
+    <%= form.text_field :name, :class => 'width-100', placeholder: "Name", required: true %>
+  </div>
+
+  <div>
+    <%= form.text_field :icon, :class => 'width-100', placeholder: "Image URL", required: true %>
+  </div>
+  <div class="add-new-pos">
+
+    <%= form.submit 'Save', :class => 'add-new-bttn' %>
+  </div>
+
+  <% if @group.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+      <ul>
+        <% @group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Back to groups", groups_path %>
+</div>
