@@ -6,7 +6,7 @@ RSpec.describe 'Splash', type: :feature do
       User.destroy_all
       @user = User.create(name: 'Dwight', email: 'dschrute@dmpaper.com', password: 'blackbear',
                           confirmed_at: Time.now)
-      visit root_path
+      visit splash_path
     end
     it 'Confirms connection success' do
       expect(page).to have_http_status(:success)

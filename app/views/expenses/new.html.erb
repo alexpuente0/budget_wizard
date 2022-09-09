@@ -1,17 +1,34 @@
-<%= link_to root_path do %>
-  <p>' < '</p>
-<% end%>
-<h1>New expense</h1>
-
-<div>
-  
 <%= form_with model: @expense, method:'post', class:'form', url: expense_create_path(group_id: @group.id) do |form| %>
+
+  
+
+<div class="bg-azure flex justify-between p-5">
+
+<%= link_to "←", expense_index_path(group_id: @group.id), class: "font-nova text-white text-xl" %>
+
+  <h2 class="font-nova text-white text-xl">NEW EXPENSE</h2>
+    <div>
+    <%= form.submit 'Save', class: "font-nova text-s text-white" %>
+    </div>
+</div>
+
+<div class="flex flex-col p-5 my-5 gap-5">
+  
   <div class="field">
-    <%= form.text_field :name, autofocus: true, placeholder: "Name", required: true, class: "width-100" %>
-    <%= form.number_field :amount, autofocus: true, placeholder: "Amount", required: true, class: "width-100" %>
+    <%= form.label :name, class: "font-nova text-coal" %><br />
+    <%= form.text_field :name, autofocus: true, autocomplete: "Name", required: true, class: "border border-gray-200 w-full" %>
   </div>
 
-    <%= form.submit 'Save Expense', :class => 'add-new-bttn' %>
+  <div class="field">
+    <%= form.label :amount, class: "font-nova text-coal" %><br />
+    <%= form.number_field :amount, autofocus: true, required: true, class: "border border-gray-200 w-full" %>
+  </div>
+
+  </div>
+
+
+
+ </div>   
 
 
 <% end %>
@@ -19,5 +36,5 @@
 <br>
 
 <div>
-  <%= link_to "Back to expenses", expense_index_path(group_id: @group.id) %>
+
 </div>

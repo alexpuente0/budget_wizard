@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/expenses/new', to: "expenses#create", as: 'expense_create'
   resources :groups
 
-  root "splash#index"
+  get '/', to: "splash#index", as: 'splash'
+
 end
 
