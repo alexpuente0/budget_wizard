@@ -4,7 +4,7 @@
 <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "logout", data: { turbo: false } %>
 
 
-<h1>Groups</h1>
+<h1>Your Categories</h1>
 
 <%= link_to "Add a New Category", new_group_path %>
 
@@ -22,7 +22,7 @@
         <%= group.name %>
       </p>
     </div>
-<p> <%= group.expenses.where(user: current_user).sum(:amount)  %> </p>
+<p> $<%= group.expenses.where(user: current_user).sum(:amount)  %> </p>
   </div>
 <%end%>
 <div>
