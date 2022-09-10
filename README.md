@@ -13,6 +13,10 @@
 - PostgreSQL
 - Tailwind
 
+## Live Demo
+
+Check out the app [here](https://budget-wizard.herokuapp.com)
+
 ## Screenshots
 
 ![ScreenShot](./app/assets/images/screen1.PNG?raw=true)
@@ -67,6 +71,9 @@ Feel free to check the [issues page](../../issues/).
 
 Give a ⭐️ if you like this project!
 
+## Special Thanks
+
+To [Gregoire Vella](https://www.behance.net/gregoirevella) for their Behance template.
 
 ## 📝 License
 
