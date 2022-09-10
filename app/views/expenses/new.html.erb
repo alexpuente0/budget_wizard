@@ -1,14 +1,13 @@
 <%= form_with model: @expense, method:'post', class:'form', url: expense_create_path(group_id: @group.id) do |form| %>
 
   
-
 <div class="bg-azure flex justify-between p-5">
 
 <%= link_to "←", expense_index_path(group_id: @group.id), class: "font-nova text-white text-xl" %>
 
   <h2 class="font-nova text-white text-xl">NEW EXPENSE</h2>
     <div>
-    <%= form.submit 'Save', class: "font-nova text-s text-white" %>
+    <%= form.submit 'Save', class: "font-nova text-sm text-white" %>
     </div>
 </div>
 
