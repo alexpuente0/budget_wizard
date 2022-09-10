@@ -14,20 +14,26 @@ class ExpensesController < ApplicationController
   def new
     @expense = Expense.new
     @group = Group.find(params[:group_id])
+    @groups = Group.where(user_id: current_user.id)
   end
 
   def create
-    transaction = Expense.new(expense_params)
-    transaction.group_id = params[:group_id]
-    transaction.user = current_user
-    if transaction.valid?
-      transaction.save
-      flash[:notice] = 'Expense created successfully'
+    @transaction = Expense.new(expense_params)
+    @transaction.user = current_user
+    @group = Group.find(params[:group_id])
+    if params[:group_ids]
+      params[:group_ids].each do |group_id|
+        group = Group.find(group_id)
+        group.expenses << @transaction
+      end
+      redirect_to @group
     else
-      flash[:alert] = "Expense could't be created"
+      redirect_to new_group_expense_path(@group), flash[:alert] = 'Select at least one Category'
+      nil
     end
-    redirect_to groups_url
   end
+
+  private
 
   def expense_params
     params.require(:expense).permit(:name, :amount)

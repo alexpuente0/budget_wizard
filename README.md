@@ -1,51 +1,61 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Budget Wizard
 
-> Description the project.
+> An object-based personal Budgeting app where each user can log in and enter their expenses in different categories or groups.
+
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- Ruby
+- Rails
+- Bullet
+- PostgreSQL
+- Tailwind
 
-## Live Demo (if available)
+## Screenshots
 
-[Live Demo Link](https://livedemo.com)
+![ScreenShot](./app/assets/images/screen1.PNG?raw=true)
+![ScreenShot](./app/assets/images/screen2.PNG?raw=true)
+![ScreenShot](./app/assets/images/screen3.PNG?raw=true)
+![ScreenShot](./app/assets/images/screen4.PNG?raw=true)
+![ScreenShot](./app/assets/images/screen5.PNG?raw=true)
+![ScreenShot](./app/assets/images/screen6.PNG?raw=true)
+![ScreenShot](./app/assets/images/screen7.PNG?raw=true)
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+- [Install Ruby](https://www.ruby-lang.org/en/documentation/installation/) on your local machine
+- Clone [this repository](https://github.com/alexpuente0/budget_wizard)
 
-To get a local copy up and running follow these simple example steps.
+```
+git clone https://github.com/alexpuente0/budget_wizard
+```
+- To get started, In the root directory run:
 
-### Prerequisites
+```
+gem install bundler
+```
 
-### Setup
+Then run:
 
-### Install
+```
+bundle install
+```
 
-### Usage
+Open terminal and run ruby app in the command Line:
 
-### Run tests
-
-### Deployment
+```
+ruby bin/main
+```
 
 ## Authors
 
-👤 **Author1**
+👤 **Alejandro Puente**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@alexpuente0](https://github.com/alexpuente0)
+- Twitter: [@zero_rock](https://twitter.com/zero_rock)
+- LinkedIn: [Alejandro Puente](https://www.linkedin.com/in/alex-puente-farias/)
 
 ## 🤝 Contributing
 
@@ -57,14 +67,7 @@ Feel free to check the [issues page](../../issues/).
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
 
 ## 📝 License
 
-This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
+This project is [MIT](./MIT.md) licensed.
