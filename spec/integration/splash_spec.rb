@@ -12,7 +12,7 @@ RSpec.describe 'Splash', type: :feature do
       expect(page).to have_http_status(:success)
     end
     it 'Displays App Logo' do
-    find_by_id('page_logo')
+      find_by_id('page_logo')
     end
     it 'Displays LogIn button' do
       expect(page).to have_content('Login')
