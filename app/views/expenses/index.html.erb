@@ -1,27 +1,43 @@
+<div class="flex flex-col h-screen">
+<div class="bg-azure flex justify-between p-5">
+
+<%= link_to "←", groups_path, class: "font-nova text-white text-xl" %>
+
+  <h2 class="font-nova text-white text-xl">TRANSACTIONS</h2>
+    <div></div>
+</div>
+
 <p style="color: green"><%= notice %></p>
-<%= link_to root_path do %>
-  <p>' < '</p>
-<% end%>
-<h1><%=@group.name%></h1>
+
 
   <% if @expenses.count > 0  %>
+   <div class="flex border border-gray-300 w-full py-4 px-10 items-center justify-between bg-white mb-6">
+   <h1><%=@group.name%></h1>
     <p><%=number_to_currency @group.expenses.where(user: current_user).sum(:amount)%> </p>
-    <%else%> <p>There are no expenses in this Group</p>
+    </div>
+    <%else%> 
+    <div class="flex border border-gray-300 w-full py-4 px-10 items-center justify-around bg-white mb-6">
+    <p class="font-nova text-coal">There are no expenses in this Group</p>
+    </div>
   <% end %>
 
-<div id="expenses">
+<div class="flex flex-col gap-2">
+
   <% @expenses.each do |expense| %>
   <%= link_to expense_detail_path(expense_id: expense.id, group_id: @group.id) do %>
-  <div>
-  
-              <%= expense.name %>
-          <%=number_to_currency expense.amount %>
-          
+    <div class="flex border border-gray-300 w-11/12 m-auto p-3 items-center justify-between bg-white" >
+    <div class="flex items-center">
+      <%= image_tag(image_path("#{@group.icon}"), class: "w-10 h-10 rounded-full mr-4")%>      
+      <p> <%= expense.name %> </p>
     </div>
-    <%end%>
+      <p>  <%= number_to_currency expense.amount %> </p>
+    </div>
+  <%end%>
      
     
   <% end %>
 </div>
 
-<%= link_to "Add a New Transaction", expense_new_path %>
+<div class="fixed bottom-0 w-full flex bg-lyme justify-around text-center py-3">
+<%= link_to "Add a New Transaction", expense_new_path, class: "border border-lime-100 text-white align-center h-14 w-full mx-3 font-nova font-bold py-4" %>
+</div>

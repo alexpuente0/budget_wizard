@@ -1,20 +1,29 @@
-<%= link_to root_path do %>
-  <p>' < '</p>
-<% end%>
-<h1>New group</h1>
-
 <%= form_with scope: :group, url: groups_path, method: :post  do |form| %>
-  <div>
-    <%= form.text_field :name, :class => 'width-100', placeholder: "Name", required: true %>
+
+
+<div class="bg-azure flex justify-between p-5">
+
+<%= link_to "←", groups_path, class: "font-nova text-white text-xl" %>
+  <h2 class="font-nova text-white text-xl">NEW CATEGORY</h2>
+    <div>
+    <%= form.submit 'Save', class: "font-nova text-sm text-white" %>
+    </div>
+</div>
+
+
+<div class="flex flex-col p-5 my-5 gap-5">
+
+  <div class="field">
+    <%= form.label :name, class: "font-nova text-coal" %><br />
+    <%= form.text_field :name, autofocus: true, autocomplete: "Name", required: true, class: "border border-gray-200 w-full" %>
   </div>
 
-  <div>
-    <%= form.text_field :icon, :class => 'width-100', placeholder: "Image URL", required: true %>
+  <div class="field">
+    <%= form.label :icon, class: "font-nova text-coal" %><br />
+    <%= form.text_field :icon, placeholder: "Image URL", required: true, class: "border border-gray-200 w-full" %>
   </div>
-  <div class="add-new-pos">
 
-    <%= form.submit 'Save', :class => 'add-new-bttn' %>
-  </div>
+
 
   <% if @group.errors.any? %>
     <div style="color: red">
@@ -28,8 +37,4 @@
   <% end %>
 <% end %>
 
-<br>
 
-<div>
-  <%= link_to "Back to groups", groups_path %>
-</div>
