@@ -21,14 +21,14 @@ class ExpensesController < ApplicationController
     @transaction = Expense.new(expense_params)
     @transaction.user = current_user
     @group = Group.find(params[:group_id])
-    if params[:group_ids] 
+    if params[:group_ids]
       params[:group_ids].each do |group_id|
         group = Group.find(group_id)
         group.expenses << @transaction
       end
       redirect_to @group
     else
-      redirect_to new_group_expense_path(@group), flash[:alert] = "Select at least one Category"
+      redirect_to new_group_expense_path(@group), flash[:alert] = 'Select at least one Category'
       nil
     end
   end
