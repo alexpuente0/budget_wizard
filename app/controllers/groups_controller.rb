@@ -3,7 +3,12 @@ class GroupsController < ApplicationController
   # before_action :set_group , only: %i[ show edit update destroy ]
 
   def index
-    @groups = Group.all.where(user: current_user)
+    @groups = Group.where(user: current_user)
+  end
+
+  def show
+        @group = Group.find(params[:id])    
+    @expenses = @group.expenses.order(created_at: :desc)
   end
 
   def new
@@ -19,14 +24,7 @@ class GroupsController < ApplicationController
     else
       flash[:alert] = 'Group couldnt be created.'
     end
-    redirect_to groups_url
-  end
-
-  def destroy
-    @group = Group.find(params[:id])
-    @group.destroy
-    flash[:alert] = 'Group has been Deleted.'
-    redirect_to groups_url
+    redirect_to groups_path
   end
 
   private
