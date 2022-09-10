@@ -1,0 +1,40 @@
+<%= form_with scope: :group, url: groups_path, method: :post  do |form| %>
+
+
+<div class="bg-azure flex justify-between p-5">
+
+<%= link_to "←", groups_path, class: "font-nova text-white text-xl" %>
+  <h2 class="font-nova text-white text-xl">NEW CATEGORY</h2>
+    <div>
+    <%= form.submit 'Save', class: "font-nova text-sm text-white" %>
+    </div>
+</div>
+
+
+<div class="flex flex-col p-5 my-5 gap-5">
+
+  <div class="field">
+    <%= form.label :name, class: "font-nova text-coal" %><br />
+    <%= form.text_field :name, autofocus: true, autocomplete: "Name", required: true, class: "border border-gray-200 w-full" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :icon, class: "font-nova text-coal" %><br />
+    <%= form.text_field :icon, placeholder: "Image URL", required: true, class: "border border-gray-200 w-full" %>
+  </div>
+
+
+
+  <% if @group.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+      <ul>
+        <% @group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+
+

@@ -1,0 +1,9 @@
+  <div class="flex flex-col h-screen justify-between py-12">
+    <div class="my-14">
+      <img src=<%=image_path("applogo.png")%> alt="logo" id="page_logo" class="w-11/12 m-auto">
+    </div>
+    <div class="flex flex-col mt-14">
+      <%= link_to "Login", new_user_session_path, class: "bg-azure text-lg font-nova text-white rounded text-center m-auto w-11/12 py-2 px-16" %>
+      <%= link_to "Signup", new_user_registration_path, class: "text-lg text-coal font-nova text-center m-auto w-11/12 py-2 px-16" %>
+    </div>
+  </div>

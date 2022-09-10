@@ -1,0 +1,51 @@
+<%= form_with model: @expense, method:'post', class:'form', url: group_expenses_path(group_id: @group.id) do |form| %>
+
+  
+<div class="bg-azure flex justify-between p-5">
+
+<%= link_to "←", groups_path(group_id: @group.id), class: "font-nova text-white text-xl" %>
+
+  <h2 class="font-nova text-white text-xl">NEW EXPENSE</h2>
+    <div>
+    <%= form.submit 'Save', class: "font-nova text-sm text-white" %>
+    </div>
+</div>
+
+<div class="flex flex-col p-5 my-5 gap-5">
+  
+  <div class="field">
+    <%= form.label :name, class: "font-nova text-coal" %><br />
+    <%= form.text_field :name, autofocus: true, autocomplete: "Name", required: true, class: "border border-gray-200 w-full" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount, class: "font-nova text-coal" %><br />
+    <%= form.number_field :amount, autofocus: true, required: true, class: "border border-gray-200 w-full" %>
+  </div>
+
+  <div class="selections">
+   <%= form.label :Group, class: "font-nova text-coal" %><br />
+   <div class="grid grid-cols-2 m-5 text-center items-end">
+    <%@groups.each do |group|%>
+      <div class="selection">
+        <%= group.name %>
+        <%= check_box_tag "group_ids[]", group.id, group.id == @group.id  %>
+      </div>
+    <%end%>
+    </div>
+  </div>
+
+  </div>
+
+
+
+ </div>   
+
+
+<% end %>
+
+<br>
+
+<div>
+
+</div>

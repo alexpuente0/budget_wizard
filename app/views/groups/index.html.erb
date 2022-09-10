@@ -1,0 +1,36 @@
+<div class="flex flex-col h-screen">
+  <div class="bg-azure flex justify-between p-5">
+    <div class="w-14">
+    </div>
+  <h2 class="font-nova text-white text-xl">YOUR CATEGORIES</h2>
+    <div>
+      <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "border-1 font-nova text-white text-sm", data: { turbo: false } %>
+    </div>
+  </div>
+
+
+<div class="flex flex-col gap-2 my-5">
+    <% @groups.each do |group| %>
+
+    <%= link_to group_path(id: group.id) do %>
+      <div class="flex border border-gray-300 w-11/12 m-auto p-3 items-center justify-between bg-white" >
+        <div class="flex items-center gap-2">
+          <p><%= image_tag(image_path("#{group.icon}"), class: "w-20 h-20") %></p>
+          <p class="mx-5"><%= group.name %></p>
+        </div>
+        <div class="flex gap-5">
+          <p><%= number_to_currency group.expenses.where(user: current_user).sum(:amount) %></p>
+        </div>
+      </div>
+    <%end%>
+    <% end %>
+  </div>
+
+
+<div class="fixed bottom-0 w-full flex bg-lyme justify-around text-center py-3">
+<%= link_to "Add a New Category", new_group_path, class: "border border-lime-100 text-white align-center h-14 w-full mx-3 font-nova font-bold py-4" %>
+</div>
+</div>
+
+
+

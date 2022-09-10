@@ -1,15 +1,9 @@
 class Expense < ApplicationRecord
   belongs_to :user
-  belongs_to :group
+  has_many :joints, dependent: :destroy
+  has_many :groups, through: :joints
 
   validates :name, presence: true
   validates :amount, presence: true
-
-  def total_expenses(id)
-    total = 0
-    Expense.where(group_id: id).each do |expense|
-      total += expense.amount
-    end
-    total
-  end
+  validates :amount, numericality: { only_float: true, greater_than: 0 }
 end

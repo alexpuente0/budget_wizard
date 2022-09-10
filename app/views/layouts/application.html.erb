@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog</title>
+    <title>Budget Wizard</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <script src="https://cdn.tailwindcss.com"></script>   
+      <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            nova: "'Proxima Nova', 'sans-serif'",
+          },
+          colors: {
+            'azure': '#3778c2',
+            'lyme': '#5fb523',
+            'coal': '#434b54',
+            },
+          }
+        }
+      }
+  </script>   
     <%= javascript_importmap_tags %>
+    
   </head>
 
-  <body>
+  <body class="bg-gray-100">
     <div>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
