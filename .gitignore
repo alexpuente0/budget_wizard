@@ -41,3 +41,4 @@ coverage
 
 # Ignore .env file
 .env
+/config/credentials/production.key
