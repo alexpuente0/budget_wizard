@@ -1,37 +1,23 @@
-# databases:
-#   - name: budget_wizard_production
-#     databaseName: budget_wizard_production
-#     user: alexpuente0
-
-# services:
-#   - type: web
-#     name: rails
-#     env: ruby
-#     buildCommand: "./bin/render-build.sh"
-#     startCommand: "bundle exec puma -C config/puma.rb"
-#     envVars:
-#       - key: DATABASE_URL
-#         fromDatabase: 
-#           name: budget_wizard_production
-#           property: connectionString
-#       - key: RAILS_MASTER_KEY
-#         sync: false
-
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
+  - name: bw_db
+    databaseName: bw_db
+    user: alex
 
 services:
   - type: web
-    name: mysite
+    name: rails
     env: ruby
     buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec puma -C config/puma.rb"
+    startCommand: bundle exec rails s
     envVars:
-      - key: DATABASE_URL
-        fromDatabase:
-          name: mysite
-          property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
+      - key: DATABASE_URL
+        fromDatabase: 
+          name: postgres
+          property: connectionString
+  - type: redis
+    name: redis
+    ipAllowList: []
+    plan: free
+    maxmemoryPolicy: noeviction
